@@ -1,0 +1,94 @@
+﻿<Window x:Class="xov1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xov1"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="605" Width="456" Background="Gray">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="34" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Магический прятатель кнопок и раскрашиватель шапки-->
+            <Style x:Key="CaptionButtonStyle" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid x:Name="LayoutRoot" Background="Black" Width="44" Height="30">
+                                <TextBlock x:Name="txt" Text="{TemplateBinding Content}" FontFamily="Segoe MDL2 Assets" FontSize="10" 
+                                   Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   RenderOptions.ClearTypeHint="Auto" TextOptions.TextRenderingMode="Aliased"  TextOptions.TextFormattingMode="Display"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="LayoutRoot" Property="Background" Value="Black"/>
+                                    <Setter TargetName="txt" Property="Foreground" Value="Black"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid>
+
+        <Grid x:Name="xos">
+            <Button Name ="Button1" HorizontalAlignment="Left" Margin="59,169,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold"/>
+            <Button Name ="Button2" HorizontalAlignment="Left" Margin="173,169,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button3" HorizontalAlignment="Left" Margin="286,169,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button4" HorizontalAlignment="Left" Margin="59,282,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button5" HorizontalAlignment="Left" Margin="173,282,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button6" HorizontalAlignment="Left" Margin="286,282,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button7" HorizontalAlignment="Left" Margin="59,393,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button8" HorizontalAlignment="Left" Margin="173,393,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+            <Button Name ="Button9" HorizontalAlignment="Left" Margin="286,393,0,0" VerticalAlignment="Top" Height="105" Width="105" Click="Button_Click" FontSize="90" FontFamily="Arial Black" FontWeight="Bold" />
+        </Grid>
+
+        <Grid x:Name="Labels">
+            <Label Content="TicTacToe" HorizontalAlignment="Left" Margin="109,23,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+            <Label Name="WinnerOutput" Content="" HorizontalAlignment="Center" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        </Grid>
+
+        <Grid x:Name="Buttons">
+            <Button Name="Start" Content="Start" Margin="173,500,173,20" HorizontalAlignment="Left" Height="40" Width="105" Click="Start_Click" Background="DarkGray" FontSize="22" FontWeight="SemiBold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Background="DarkRed" Margin="430,4,0,0" VerticalAlignment="Top" Height="20" Width="20">
+
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="60"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Bot" Content="BOT" Margin="58,515,0,34" HorizontalAlignment="Left" Height="40" Width="105" Click="botenabling" Background="DarkGray" FontSize="22" FontWeight="SemiBold">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="XOChange" Content="Chsd X" Margin="287,515,0,34" HorizontalAlignment="Left" Height="40" Width="106" Click="xochange" Background="DarkGray" FontSize="22" FontWeight="SemiBold">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+    </Grid>
+
+
+
+</Window>
